@@ -5,3 +5,4 @@
         // }
         return Route::is($route) ? 'active':'';
     }
+?>

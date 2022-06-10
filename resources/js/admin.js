@@ -4,3 +4,6 @@ const menu = document.querySelector(".menuBar");
 btn.addEventListener("click", () => {
     menu.classList.toggle("hidden");
 })
+
+
+

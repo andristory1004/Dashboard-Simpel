@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Analisis;
 use App\Http\Controllers\RelawanC;
+use App\Http\Controllers\PengurusC;
 use App\Http\Controllers\DashboardC;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ListRelawanC;
+use App\Http\Controllers\ListPengurusC;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +30,10 @@ Route::get('/dashboard', function () {
 Route::get('dashboard',[DashboardC::class,'index'])->middleware(['auth'])->name('dashboard');
 Route::get('analisis',[Analisis::class,'index'])->middleware(['auth'])->name('analisis');
 Route::get('relwan',[RelawanC::class,'index'])->middleware(['auth'])->name('relawan');
+Route::get('pengurus',[PengurusC::class,'index'])->middleware(['auth'])->name('pengurus');
+
+
+Route::get('list-pengurus',[ListPengurusC::class,'index'])->middleware(['auth'])->name('list-pengurus');
+Route::get('list-relawan',[ListRelawanC::class,'index'])->middleware(['auth'])->name('list-relawan');
 
 require __DIR__.'/auth.php';

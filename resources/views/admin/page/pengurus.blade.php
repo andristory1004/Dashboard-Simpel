@@ -9,13 +9,13 @@
 
             <div class="pt-3 bg-gray-800">
                 <div class="p-4 text-2xl text-white shadow rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 ">
-                    <h1 class="pl-2 font-bold">Relawan</h1>
+                    <h1 class="pl-2 font-bold">Pengurus</h1>
                 </div>
             </div>
             <div class="flex flex-wrap">
                 <div class="w-full md:w-1/2 xl:w-1/3 p-6 hover:scale-75">
                     <!--Metric Card-->
-                    <a href={{route('list-relawan')}} class="">
+                    <a href={{route('list-pengurus')}}>
                     <div class="bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5 hover:bg-gradient-to-b hover:from-blue-200 hover:to-blue-100 hover:border-blue-600">
                         <div class="flex flex-row items-center">
                             <div class="flex-shrink pr-4">
@@ -126,6 +126,3 @@
         </div>
     </section>
 </x-admin-layout>
-
-
-

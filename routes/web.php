@@ -1,12 +1,17 @@
 <?php
 
-use App\Http\Controllers\Analisis;
-use App\Http\Controllers\RelawanC;
-use App\Http\Controllers\PengurusC;
-use App\Http\Controllers\DashboardC;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ListRelawanC;
-use App\Http\Controllers\ListPengurusC;
+use App\Http\Controllers\PaslonController;
+use App\Http\Controllers\DataTPSController;
+use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ListSaksiController;
+use App\Http\Controllers\ListRealCountController;
+use App\Http\Controllers\ListQuickCountController;
+use App\Http\Controllers\GrafikRealCountController;
+use App\Http\Controllers\MonitoringSaksiController;
+use App\Http\Controllers\GrafikQuickCountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,13 +32,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('dashboard',[DashboardC::class,'index'])->middleware(['auth'])->name('dashboard');
-Route::get('analisis',[Analisis::class,'index'])->middleware(['auth'])->name('analisis');
-Route::get('relwan',[RelawanC::class,'index'])->middleware(['auth'])->name('relawan');
-Route::get('pengurus',[PengurusC::class,'index'])->middleware(['auth'])->name('pengurus');
+Route::get('dashboard',[DashboardController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('paslon',[PaslonController::class,'index'])->middleware(['auth'])->name('paslon');
+Route::get('data-tps',[DataTPSController::class, 'index'])->middleware(['auth'])->name('data-tps');
+Route::get('operator',[OperatorController::class, 'index'])->middleware(['auth'])->name('operator');
+Route::get('list-saksi',[ListSaksiController::class, 'index'])->middleware(['auth'])->name('list-saksi');
+Route::get('monitoring-saksi',[MonitoringSaksiController::class, 'index'])->middleware(['auth'])->name('monitoring-saksi');
+Route::get('list-quick-count',[ListQuickCountController::class, 'index'])->middleware(['auth'])->name('list-quick-count');
+Route::get('list-real-count',[ListRealCountController::class, 'index'])->middleware(['auth'])->name('list-real-count');
+Route::get('grafik-quick-count',[GrafikQuickCountController::class, 'index'])->middleware(['auth'])->name('grafik-quick-count');
+Route::get('grafik-real-count',[GrafikRealCountController::class, 'index'])->middleware(['auth'])->name('grafik-real-count');
 
 
-Route::get('list-pengurus',[ListPengurusC::class,'index'])->middleware(['auth'])->name('list-pengurus');
-Route::get('list-relawan',[ListRelawanC::class,'index'])->middleware(['auth'])->name('list-relawan');
 
 require __DIR__.'/auth.php';

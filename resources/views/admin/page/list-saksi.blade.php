@@ -122,35 +122,30 @@
                                 id="exampleFormControlInput1" placeholder="No Telepon" />
                             <select
                                 class="form-control w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                aria-label=".form-select-lg example">
+                                aria-label=".form-select-lg example"
+                                id="provinsi">
                                 <option selected>Provinsi</option>
-                                <option value="1">Jawa Barat</option>
-                                <option value="2">Admin</option>
-                                <option value="3">View Only</option>
+                                @foreach ($provinces as $provinsi)
+                                    <option value="{{$provinsi->id}}">{{$provinsi->name}}</option>
+                                @endforeach
                             </select>
                             <select
                                 class="form-control w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                aria-label=".form-select-lg example">
-                                <option selected>Kabupaten</option>
-                                <option value="1">Garut</option>
-                                <option value="2">Admin</option>
-                                <option value="3">View Only</option>
+                                aria-label=".form-select-lg example"
+                                id="kabupaten">
+                                <option selected>Kabupaten/Kota</option>
                             </select>
                             <select
                                 class="form-control w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                aria-label=".form-select-lg example">
+                                aria-label=".form-select-lg example"
+                                id="kecamatan">
                                 <option selected>Kecamatan</option>
-                                <option value="1">Tarogong Kidul</option>
-                                <option value="2">Admin</option>
-                                <option value="3">View Only</option>
                             </select>
                             <select
                                 class="form-control w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                aria-label=".form-select-lg example">
+                                aria-label=".form-select-lg example"
+                                id="kelurahan">
                                 <option selected>Kelurahan</option>
-                                <option value="1">Super Admin</option>
-                                <option value="2">Admin</option>
-                                <option value="3">View Only</option>
                             </select>
                             <select
                                 class="form-control w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"

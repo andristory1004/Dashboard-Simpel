@@ -17,8 +17,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <!-- Scripts -->
+    <!-- My JS -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('js/admin.js')}}" type="text/javascript" defer></script>
+
 
     {{-- Tailwind --}}
     <link href="/dist/output.css" rel="stylesheet">
@@ -53,7 +55,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
 
     {{-- JQuery --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body class="flex font-family-karla">
@@ -72,8 +74,8 @@
                     <i class="mr-3 fas fa-tachometer-alt"></i>
                     Dashboard
                 </a>
-                <a href={{ route('data-tps') }}
-                    class="{{ request()->is('data-tps') ? 'text-black bg-white rounded-l-full font-bold' : '' }} flex items-center py-3 pl-3 nav-item ml-2 hover:text-black hover:bg-white hover:rounded-l-full my-2">
+                <a href={{ route('tps.index') }}
+                    class="{{ request()->is('tps.index') ? 'text-black bg-white rounded-l-full font-bold' : '' }} flex items-center py-3 pl-3 nav-item ml-2 hover:text-black hover:bg-white hover:rounded-l-full my-2">
                     <i class="mr-3 fas fa-table"></i>
                     Data TPS
                 </a>
@@ -166,7 +168,7 @@
                 {{-- End Collapse --}}
 
                 {{-- Dropdown --}}
-                <a id="dropdownMenuButton1u" data-bs-toggle="dropdown" aria-expanded="false"
+                <a data-bs-toggle="dropdown" aria-expanded="false"
                         class="{{ request()->is('list-saksi', 'monitoring-saksi') ? 'text-black bg-white rounded-l-full font-bold' : '' }} flex items-center py-3 pl-3 nav-item  hover:text-black hover:bg-white hover:rounded-l-full my-2  ml-2">
                         <i class="mr-3 fas fa-id-card"></i>
                     Data Saksi
@@ -179,18 +181,18 @@
                 </a>
                 
                 <ul 
-                    class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
+                    class="absolute z-50 hidden float-left py-2 m-0 mt-1 text-base text-left list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding"
                     aria-labelledby="dropdownMenuButton1u">
                     <li>
                         <a
-                            class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            class="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                             href={{ route('list-saksi') }}>
                             List Saksi
                         </a>
                     </li>
                     <li>
                         <a
-                            class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            class="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                             href={{ route('monitoring-saksi') }}>
                             Monitoring Saksi
                         </a>
@@ -199,7 +201,7 @@
                 {{-- End Dropdown --}}
 
                 {{-- Dropdown --}}
-                <a id="dropdownMenuButton1u" data-bs-toggle="dropdown" aria-expanded="false"
+                <a data-bs-toggle="dropdown" aria-expanded="false"
                         class="{{ request()->is('list-quick-count', 'grafik-quick-count') ? 'text-black bg-white rounded-l-full font-bold' : '' }} flex items-center py-3 pl-3 nav-item  hover:text-black hover:bg-white hover:rounded-l-full my-2  ml-2">
                     <i class="mr-3 fas fa-chart-area"></i>
                     Quick Count
@@ -212,18 +214,18 @@
                 </a>
                 
                 <ul 
-                    class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
+                    class="absolute z-50 hidden float-left py-2 m-0 mt-1 text-base text-left list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding"
                     aria-labelledby="dropdownMenuButton1u">
                     <li>
                         <a
-                            class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            class="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                             href={{ route('list-quick-count') }}>
                             Input Quick Count
                         </a>
                     </li>
                     <li>
                         <a
-                            class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            class="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                             href={{ route('grafik-quick-count') }}>
                             Grafik Quick Count
                         </a>
@@ -232,7 +234,7 @@
                 {{-- End Dropdown --}}
 
                 {{-- Dropdown --}}
-                <a id="dropdownMenuButton1u" data-bs-toggle="dropdown" aria-expanded="false"
+                <a data-bs-toggle="dropdown" aria-expanded="false"
                         class="{{ request()->is('list-real-count', 'grafik-real-count') ? 'text-black bg-white rounded-l-full font-bold' : '' }} flex items-center py-3 pl-3 nav-item  hover:text-black hover:bg-white hover:rounded-l-full my-2  ml-2">
                     <i class="mr-3 fas fa-chart-line"></i>
                     Real Count
@@ -244,18 +246,18 @@
                     </svg>
                 </a>
                 <ul 
-                    class="dropdown-menu min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
+                    class="absolute z-50 hidden float-left py-2 m-0 mt-1 text-base text-left list-none bg-white border-none rounded-lg shadow-lg dropdown-menu min-w-max bg-clip-padding"
                     aria-labelledby="dropdownMenuButton1u">
                     <li>
                         <a
-                            class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            class="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                             href={{ route('list-real-count') }}>
                             Input Real Count
                         </a>
                     </li>
                     <li>
                         <a
-                            class=" dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                            class="block w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100"
                             href={{ route('grafik-real-count') }}>
                             Grafik Real Count
                         </a>
@@ -264,8 +266,8 @@
                 {{-- End Dropdown --}}
                 <a href=""
                     class="{{ request()->is('operator') ? 'text-black bg-white rounded-l-full font-bold' : '' }} flex items-center py-3 pl-3 nav-item ml-2 hover:text-black hover:bg-white hover:rounded-l-full my-2">
-                    <i class="mr-3 fas fa-users"></i>
-                    RAB
+                    <i class="mr-3 fas fa-coins"></i>
+                    Finance
                 </a>
             </nav>
     </aside>
@@ -301,8 +303,8 @@
         </header>
 
         <!-- Mobile Header & Nav -->
-        <header class="w-full px-6 py-5 bg-blue lg:hidden">
-            <div class="flex items-center justify-between">
+        <header class="w-full py-5 bg-blue lg:hidden">
+            <div class="flex items-center justify-between px-6">
                 <a href="index.html" class="hidden text-3xl text-white hover:text-gray-300 font-lobster sm:block">Sistem Pemenangan Pemilu</a>
                 <a href="index.html" class="text-3xl font-semibold text-white uppercase md:hidden hover:text-gray-300 sm:hidden">SIMPEL</a>
                 <button id="menu-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
@@ -314,70 +316,124 @@
             </div>
 
             <!-- Dropdown Nav -->
-            <nav class="flex flex-col pt-4 collapse" id="collapseExample">
-                <a href={{ route('dashboard') }}
-                    class="flex items-center py-2 pl-4 text-white active-nav-link nav-item">
-                    <i class="mr-3 fas fa-tachometer-alt"></i>
-                    Dashboard
-                </a>
-                <a href={{ route('data-tps') }}
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-sticky-note"></i>
-                    Data TPS
-                </a>
-                <a href={{ route('paslon') }}
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-table"></i>
-                    Pasangan Calon
-                </a>
-                <a href={{ route('operator') }}
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-align-left"></i>
-                    Operator
-                </a>
-                <a aria-expanded="false" aria-controls="real-count" data-bs-toggle="collapse" href="#dataSaksi" class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-calendar"></i>
-                    Data Saksi
-                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-2 ml-2"
-                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                        <path fill="currentColor"
-                            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
-                        </path>
-                    </svg>
-                </a>
-                <div class="ml-10 collapse" id="dataSaksi">
-                    <a href="calendar.html"
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-calendar"></i>
-                    List Saksi
-                </a>
-                <a href="calendar.html"
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-calendar"></i>
-                    Monitoring Saksi
-                </a>
-                </div>
-                
-                <a href=""
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-cogs"></i>
-                    Quick Count
-                </a>
-                <a href="#"
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-user"></i>
-                    Real Count
-                </a>
-                <a href="#"
-                    class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 nav-item">
-                    <i class="mr-3 fas fa-sign-out-alt"></i>
-                    Sign Out
-                </a>
-                <button
-                    class="flex items-center justify-center w-full py-2 mt-3 font-semibold bg-white rounded-lg shadow-lg cta-btn hover:shadow-xl hover:bg-gray-300">
-                    <i class="mr-3 fas fa-arrow-circle-up"></i> Upgrade to Pro!
-                </button>
-            </nav>
+            <div class="overflow-auto scroll-smooth">
+                <nav class="flex flex-col max-h-screen px-6 pt-4 collapse" id="collapseExample">
+                    <a href={{ route('dashboard') }}
+                        class="{{request()->is('dashboard')? 'opacity-100 font-bold' : ''}} flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                    <a href={{ route('tps.index') }}
+                        class="{{request()->is('data-tps')? 'opacity-100 font-bold' : ''}} flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-table"></i>
+                        Data TPS
+                    </a>
+                    <a href={{ route('paslon') }}
+                        class="{{request()->is('paslon')? 'opacity-100 font-bold' : ''}} flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-user-tie"></i>
+                        Pasangan Calon
+                    </a>
+                    <a href={{ route('operator') }}
+                        class="{{request()->is('operator')? 'opacity-100 font-bold' : ''}} flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-users"></i>
+                        Operator
+                    </a>
+                    {{-- collapse --}}
+                    <a aria-expanded="false" aria-controls="real-count" data-bs-toggle="collapse" href="#dataSaksi" 
+                        class="{{request()->is('list-saksi', 'monitoring-saksi')? 'opacity-100 font-bold' : ''}} flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-id-card"></i>
+                        Data Saksi
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-2 ml-2"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                            </path>
+                        </svg>
+                    </a>
+                    <div class="ml-10 collapse" id="dataSaksi">
+                        <a href={{route('list-saksi')}}
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-clipboard-list"></i>
+                        List Saksi
+                    </a>
+                    <a href={{route('monitoring-saksi')}}
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-desktop-arrow-down"></i>
+                        Monitoring Saksi
+                    </a>
+                    </div>
+                    {{-- end Collapse --}}
+                    {{-- collapse --}}
+                    <a href="#quickCount" aria-expanded="false" aria-controls="real-count" data-bs-toggle="collapse" 
+                        class="{{request()->is('list-quick-count', 'grafik-quick-count')? 'opacity-100 font-bold' : ''}} flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-chart-area"></i>
+                        Quick Count
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-2 ml-2"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                            </path>
+                        </svg>
+                    </a>
+                    <div class="ml-10 collapse" id="quickCount">
+                        <a href={{route('list-quick-count')}}
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-calendar"></i>
+                        Input Quick Count
+                    </a>
+                    <a href={{route('grafik-quick-count')}}
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-calendar"></i>
+                        Grafik Quick Count
+                    </a>
+                    </div>
+                    {{-- end Collapse --}}
+                    {{-- collapse --}}
+                    <a href="#realCount" aria-expanded="false" aria-controls="real-count" data-bs-toggle="collapse" 
+                        class="{{request()->is('list-real-count', 'grafik-real-count')? 'opacity-100 font-bold' : ''}} flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-chart-line"></i>
+                        Real Count
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="w-2 ml-2"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                            </path>
+                        </svg>
+                    </a>
+                    <div class="ml-10 collapse" id="realCount">
+                        <a href={{route('list-real-count')}}
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-calendar"></i>
+                        Input Real Count
+                    </a>
+                    <a href={{route('grafik-real-count')}}
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-calendar"></i>
+                        Grafik Real Count
+                    </a>
+                    </div>
+                    {{-- end Collapse --}}
+                    <a href=""
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-coins"></i>
+                        Finance
+                    </a>
+                    <a href="#"
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-user"></i>
+                        Setting
+                    </a>
+                    <a href="#"
+                        class="flex items-center py-2 pl-4 text-white opacity-75 hover:opacity-100 hover:font-bold nav-item">
+                        <i class="mr-3 fas fa-sign-out-alt"></i>
+                        Sign Out
+                    </a>
+                    <button
+                        class="flex items-center justify-center w-full py-2 mt-3 font-semibold bg-white rounded-lg shadow-lg cta-btn hover:shadow-xl hover:bg-gray-300">
+                        <i class="mr-3 fas fa-arrow-circle-up"></i> Upgrade to Pro!
+                    </button>
+                </nav>
+            </div>
             <!-- <button class="flex items-center justify-center w-full py-2 mt-5 font-semibold bg-white rounded-tr-lg rounded-bl-lg rounded-br-lg shadow-lg cta-btn hover:shadow-xl hover:bg-gray-300">
               <i class="mr-3 fas fa-plus"></i> New Report
           </button> -->
@@ -475,6 +531,69 @@
                 }
             }
         });
+    </script>
+
+    {{-- Data Wilayah --}}
+    <script>
+        $(function () {
+    $.ajaxSetup({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+    });
+
+    $('#provinsi').on('change', function () {
+        let id_provinsi = $('#provinsi').val();
+
+        $.ajax({
+            type: 'POST',
+            url: "{{route('/get-kabupaten')}}",
+            data: { id_provinsi: id_provinsi },
+            cache: false,
+
+            success: function (msg) {
+                $('#kabupaten').html(msg);
+            },
+            error: function (data) {
+                console.log('error:', data);
+            }
+        })
+    })
+
+    $('#kabupaten').on('change', function () {
+        let id_kabupaten = $('#kabupaten').val();
+
+        $.ajax({
+            type: 'POST',
+            url: "{{route('/get-kecamatan')}}",
+            data: { id_kabupaten: id_kabupaten },
+            cache: false,
+
+            success: function (msg) {
+                $('#kecamatan').html(msg);
+            },
+            error: function (data) {
+                console.log('error:', data);
+            }
+        })
+    })
+
+    $('#kecamatan').on('change', function () {
+        let id_kecamatan = $('#kecamatan').val();
+
+        $.ajax({
+            type: 'POST',
+            url: "{{route('/get-kelurahan')}}",
+            data: { id_kecamatan: id_kecamatan },
+            cache: false,
+
+            success: function (msg) {
+                $('#kelurahan').html(msg);
+            },
+            error: function (data) {
+                console.log('error:', data);
+            }
+        })
+    })
+});
     </script>
 </body>
 

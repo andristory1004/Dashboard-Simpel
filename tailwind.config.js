@@ -18,8 +18,9 @@ module.exports = {
                 aa: ['Lobster']
             },
             colors: {
-                'blue1': '#00518F',
-                'blue2': '#00CBFF'
+                'green': '#00CBFF',
+                'blue': '#1947ee',
+                'red': '#ff0000'
             }
         },
     },
